@@ -1,10 +1,17 @@
 #!/bin/bash
 # Pre-bash guardrail hook
-# Receives tool input via CLAUDE_TOOL_INPUT env var
-# Exit 2 = block the command and show message to Claude
+# Claude Code passes hook input as JSON on stdin:
+#   {"tool_name":"Bash","tool_input":{"command":"..."}}
+# Exit 2 = block the command and show the stderr message to Claude
 # Exit 0 = allow
 
-COMMAND="${CLAUDE_TOOL_INPUT}"
+INPUT=$(cat)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty' 2>/dev/null)
+
+# If we could not parse a command, allow rather than break every Bash call
+if [ -z "$COMMAND" ]; then
+  exit 0
+fi
 
 # Block output redirection to sensitive paths
 if echo "$COMMAND" | grep -qE ">\s*\.env|>\s*secrets/|>\s*credentials/"; then
@@ -18,9 +25,16 @@ if echo "$COMMAND" | grep -qE "(cp|mv)\s+.*\s+\.env|( cp| mv)\s+.*\s+secrets/|( 
   exit 2
 fi
 
-# Block production-targeting operations (word boundaries to avoid false positives)
-if echo "$COMMAND" | grep -qE "\b(prod|production|staging)\b"; then
-  echo "BLOCKED: Command targets a production or staging environment. Require explicit human confirmation before proceeding." >&2
+# Block production deploys — vercel --prod, promote, rollback are human-triggered only.
+# (Deliberately narrow: a bare word like "production" in a commit message must not trip this.)
+if echo "$COMMAND" | grep -qE "vercel\s+.*--prod|--prod\b.*vercel|vercel\s+(promote|rollback)"; then
+  echo "BLOCKED: Production deploys are human-triggered only. Preview deploys (vercel) are fine." >&2
+  exit 2
+fi
+
+# curl/wget: allow localhost smoke tests, block external fetches
+if echo "$COMMAND" | grep -qE "\b(curl|wget)\b" && ! echo "$COMMAND" | grep -qE "\b(curl|wget)\b[^|;&]*(localhost|127\.0\.0\.1)"; then
+  echo "BLOCKED: curl/wget to external URLs is not allowed. localhost is fine." >&2
   exit 2
 fi
 

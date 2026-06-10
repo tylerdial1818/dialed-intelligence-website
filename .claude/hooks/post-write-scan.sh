@@ -1,10 +1,11 @@
 #!/bin/bash
 # Post-write secret scanner hook
-# Runs after every file write or edit
-# Scans the written file for accidental secrets
+# Claude Code passes hook input as JSON on stdin:
+#   {"tool_name":"Write","tool_input":{"file_path":"..."},"tool_response":{"filePath":"..."}}
 # Warns but does NOT block writes (exit 0) so agents can recover
 
-FILE_PATH="${CLAUDE_TOOL_RESULT_FILE:-}"
+INPUT=$(cat)
+FILE_PATH=$(echo "$INPUT" | jq -r '.tool_response.filePath // .tool_input.file_path // empty' 2>/dev/null)
 
 if [ -z "$FILE_PATH" ]; then
   exit 0
