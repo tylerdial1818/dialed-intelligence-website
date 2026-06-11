@@ -70,7 +70,7 @@ export default function Home() {
             <div>
               <h1
                 id="hero-title"
-                className="font-display text-[clamp(2.6rem,6.4vw,5.5rem)] font-semibold leading-[0.97] tracking-[-0.035em] text-balance"
+                className="font-display text-[clamp(2.6rem,6.4vw,5.5rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
               >
                 We build the software your business is missing.{" "}
                 <em className="text-blue">You own every line of it.</em>

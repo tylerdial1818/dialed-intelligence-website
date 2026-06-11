@@ -78,7 +78,7 @@ export default function AboutPage() {
           <Eyebrow>About the firm</Eyebrow>
           <h1
             id="about-title"
-            className="mt-8 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance"
+            className="mt-8 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.03em] text-balance"
           >
             Built by people who measure before they build.
           </h1>

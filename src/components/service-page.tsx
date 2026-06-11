@@ -53,7 +53,7 @@ export function ServicePage({ service }: { service: Service }) {
           </div>
           <h1
             id="service-title"
-            className="mt-8 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance"
+            className="mt-8 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.03em] text-balance"
           >
             {service.headline}
           </h1>

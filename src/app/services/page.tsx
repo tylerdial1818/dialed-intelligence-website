@@ -96,7 +96,7 @@ export default function ServicesPage() {
           <Eyebrow>Services</Eyebrow>
           <h1
             id="services-title"
-            className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.4vw,4.75rem)] font-semibold leading-[0.97] tracking-[-0.035em] text-balance"
+            className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.4vw,4.75rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
           >
             We build the systems your operation is missing.
           </h1>

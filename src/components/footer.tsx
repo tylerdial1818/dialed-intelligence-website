@@ -20,7 +20,7 @@ export function Footer() {
             <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-paper/65">
               {site.positioning}
             </p>
-            <p className="mt-5 font-display text-xl font-semibold tracking-tight">
+            <p className="mt-5 font-display text-xl font-medium tracking-tight">
               Build it. You own it.
             </p>
           </div>
