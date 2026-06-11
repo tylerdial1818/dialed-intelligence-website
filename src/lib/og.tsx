@@ -23,21 +23,25 @@ const PAPER = "#E6E6E4";
 const BLUE = "#346AEA";
 const LIME = "#CDDD3C";
 
+// Arimo stands in for the Helvetica Neue system stack here. The image
+// runtime has no system fonts and Helvetica Neue cannot be bundled, so the
+// closest open-licensed match (metric-compatible with Arial) renders the
+// sans. The mono matches the site's Roboto Mono.
 async function loadFonts() {
   const dir = path.join(process.cwd(), "src", "lib", "og-fonts");
-  const [montreal, mono] = await Promise.all([
-    readFile(path.join(process.cwd(), "src", "fonts", "PPNeueMontreal-Medium.otf")),
-    readFile(path.join(dir, "space-mono-v17-latin-regular.ttf")),
+  const [sans, mono] = await Promise.all([
+    readFile(path.join(dir, "arimo-v36-latin-500.ttf")),
+    readFile(path.join(dir, "roboto-mono-v24-latin-regular.ttf")),
   ]);
   return [
     {
-      name: "PP Neue Montreal",
-      data: montreal,
+      name: "Arimo",
+      data: sans,
       weight: 500 as const,
       style: "normal" as const,
     },
     {
-      name: "Space Mono",
+      name: "Roboto Mono",
       data: mono,
       weight: 400 as const,
       style: "normal" as const,
@@ -86,7 +90,7 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "Space Mono",
+              fontFamily: "Roboto Mono",
               fontSize: 24,
               letterSpacing: 2,
               textTransform: "uppercase",
@@ -99,7 +103,7 @@ export async function brandOgImage({
         <div
           style={{
             display: "flex",
-            fontFamily: "PP Neue Montreal",
+            fontFamily: "Arimo",
             fontWeight: 500,
             fontSize: titleSize,
             lineHeight: 1.02,
@@ -122,7 +126,7 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "PP Neue Montreal",
+              fontFamily: "Arimo",
               fontWeight: 500,
               fontSize: 26,
               color: PAPER,
@@ -133,7 +137,7 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "Space Mono",
+              fontFamily: "Roboto Mono",
               fontSize: 22,
               color: "rgba(230,230,228,0.6)",
             }}

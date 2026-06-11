@@ -8,11 +8,9 @@
   --color-blue: #346aea;
   --color-blue-2: #2a57c4;
   --color-lime: #cddd3c;
-  --font-display: var(--font-neue-montreal), "Helvetica Neue", system-ui,
-    sans-serif;
-  --font-sans: var(--font-neue-montreal), "Helvetica Neue", system-ui,
-    sans-serif;
-  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-display: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
 }
 
 :root {
