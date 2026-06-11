@@ -75,7 +75,7 @@ export default function Home() {
                 We build the software your business is missing.{" "}
                 <em className="text-blue">You own every line of it.</em>
               </h1>
-              <p className="body-lg mt-8 max-w-xl text-ink/65">
+              <p className="body-lg mt-8 max-w-xl text-ink/75">
                 Dialed Intelligence designs and builds custom data systems, AI
                 agents, and automation for companies that are done renting
                 software and done paying for advice nobody executes.
@@ -95,7 +95,7 @@ export default function Home() {
             {heroProofPoints.map((point) => (
               <li key={point} className="flex items-center gap-3">
                 <span aria-hidden="true" className="size-[6px] bg-blue" />
-                <span className="label-mono-sm text-ink/60">{point}</span>
+                <span className="label-mono-sm text-ink/70">{point}</span>
               </li>
             ))}
           </ul>
@@ -124,7 +124,7 @@ export default function Home() {
                 <h3 className="display-3 mt-14 lg:mt-20">
                   Consultancies analyze.
                 </h3>
-                <p className="body-md mt-4 text-ink/65">
+                <p className="body-md mt-4 text-ink/75">
                   They map your problems with real rigor, then hand you a deck
                   and a recommendation. Execution is left to you.
                 </p>
@@ -136,7 +136,7 @@ export default function Home() {
                 <h3 className="display-3 mt-14 lg:mt-20">
                   Software companies productize.
                 </h3>
-                <p className="body-md mt-4 text-ink/65">
+                <p className="body-md mt-4 text-ink/75">
                   They ship working tools built for their average customer. You
                   rent access forever and adapt your business to their roadmap.
                 </p>
@@ -186,7 +186,7 @@ export default function Home() {
                   <h3 className="display-2 col-span-2 sm:col-span-1">
                     {card.title}
                   </h3>
-                  <p className="body-md col-span-2 text-ink/60 group-hover:text-paper/65 sm:col-span-1">
+                  <p className="body-md col-span-2 text-ink/70 group-hover:text-paper/65 sm:col-span-1">
                     {card.desc}
                   </p>
                   <span
@@ -236,7 +236,7 @@ export default function Home() {
                 investment banking, management consulting, and production AI
                 engineering.
               </h2>
-              <p className="body-lg mt-6 max-w-xl text-ink/65">
+              <p className="body-lg mt-6 max-w-xl text-ink/75">
                 We have shipped multi-agent systems, unified data platforms,
                 and automation for organizations from research consultancies
                 to PE-backed operators.

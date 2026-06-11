@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 export function Reveal({
   children,
   delay = 0,
-  as: Tag = "div",
+  as = "div",
   className = "",
 }: {
   children: React.ReactNode;
@@ -18,7 +18,7 @@ export function Reveal({
   as?: "div" | "section" | "li" | "span";
   className?: string;
 }) {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -38,10 +38,12 @@ export function Reveal({
     return () => io.disconnect();
   }, []);
 
+  // The cast only narrows the type. At runtime the original tag renders.
+  const Tag = as as "div";
+
   return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     <Tag
-      ref={ref as any}
+      ref={ref}
       className={`reveal ${className}`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

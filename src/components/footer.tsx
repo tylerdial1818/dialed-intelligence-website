@@ -17,7 +17,7 @@ export function Footer() {
             >
               <Wordmark markWidth={36} textClassName="text-lg" />
             </Link>
-            <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-paper/55">
+            <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-paper/65">
               {site.positioning}
             </p>
             <p className="mt-5 font-display text-xl font-semibold tracking-tight">
@@ -26,7 +26,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label-mono-sm mb-5 text-paper/45">Firm</h2>
+            <h2 className="label-mono-sm mb-5 text-paper/60">Firm</h2>
             <ul>
               {nav.map((item) => (
                 <li key={item.href}>
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label-mono-sm mb-5 text-paper/45">What we build</h2>
+            <h2 className="label-mono-sm mb-5 text-paper/60">What we build</h2>
             <ul>
               {serviceNav.map((s) => (
                 <li key={s.href}>
@@ -66,7 +66,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="label-mono-sm mb-5 text-paper/45">Contact</h2>
+            <h2 className="label-mono-sm mb-5 text-paper/60">Contact</h2>
             <a
               href={`mailto:${site.email}`}
               className="block py-1.5 text-[0.9375rem] text-paper transition-colors hover:text-lime"
@@ -81,15 +81,15 @@ export function Footer() {
             >
               LinkedIn
             </a>
-            <p className="mt-4 text-[0.9375rem] text-paper/55">{site.location}</p>
+            <p className="mt-4 text-[0.9375rem] text-paper/65">{site.location}</p>
           </div>
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 pt-7">
-          <p className="font-mono text-xs text-paper/45">
-            &copy; {new Date().getFullYear()} Dialed Intelligence&reg;
+          <p className="font-mono text-xs text-paper/60">
+            {`© ${new Date().getFullYear()} Dialed Intelligence®`}
           </p>
-          <p className="font-mono text-xs text-paper/45">
+          <p className="font-mono text-xs text-paper/60">
             Custom systems. Built in weeks. Owned by you.
           </p>
         </div>

@@ -132,12 +132,12 @@ export function ProcessStrip({ dark = false }: { dark?: boolean }) {
           </span>
           <h3 className="display-3 mt-5">{step.title}</h3>
           <p
-            className={`label-mono-sm mt-2 ${dark ? "text-paper/45" : "text-ink/45"}`}
+            className={`label-mono-sm mt-2 ${dark ? "text-paper/60" : "text-ink/70"}`}
           >
             {step.duration}
           </p>
           <p
-            className={`body-md mt-4 max-w-sm ${dark ? "text-paper/60" : "text-ink/65"}`}
+            className={`body-md mt-4 max-w-sm ${dark ? "text-paper/60" : "text-ink/75"}`}
           >
             {step.body}
           </p>

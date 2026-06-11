@@ -48,6 +48,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // The inline script below adds a "js" class before hydration so scroll
+      // reveals only hide content when JS is actually running.
+      suppressHydrationWarning
       className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} ${spaceMono.variable}`}
     >
       <body className="flex min-h-svh flex-col">

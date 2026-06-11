@@ -31,7 +31,7 @@ export function Eyebrow({
         className={`inline-block size-[7px] shrink-0 ${lime ? "bg-lime" : "bg-blue"}`}
       />
       <span
-        className={`label-mono ${dark ? "text-paper/60" : "text-ink/60"}`}
+        className={`label-mono ${dark ? "text-paper/60" : "text-ink/70"}`}
       >
         {children}
       </span>

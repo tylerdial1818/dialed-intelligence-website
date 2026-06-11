@@ -12,13 +12,15 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
     return () => {
       document.documentElement.style.overflow = "";
+      document.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
 
@@ -98,6 +100,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   className="group flex items-baseline justify-between border-b border-paper/15 py-5"
                 >
                   <span className="flex items-baseline gap-4">
@@ -117,9 +120,10 @@ export function Header() {
             <div className="mt-10">
               <Link
                 href={ctaHref}
-                onClick={() =>
-                  track("cta_book_session", { placement: "mobile_menu" })
-                }
+                onClick={() => {
+                  setOpen(false);
+                  track("cta_book_session", { placement: "mobile_menu" });
+                }}
                 className="label-mono inline-flex w-full items-center justify-center gap-2 rounded-[2px] bg-blue px-6 py-5 text-white"
               >
                 {ctaLabel}
@@ -127,7 +131,7 @@ export function Header() {
                   &#8599;
                 </span>
               </Link>
-              <p className="label-mono-sm mt-8 text-paper/50">
+              <p className="label-mono-sm mt-8 text-paper/65">
                 Build it. You own it.
               </p>
             </div>

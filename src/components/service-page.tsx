@@ -47,7 +47,7 @@ export function ServicePage({ service }: { service: Service }) {
         <Container className="pb-16 pt-16 lg:pb-20 lg:pt-24">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <Eyebrow>{service.eyebrow}</Eyebrow>
-            <span className="label-mono-sm text-ink/45">
+            <span className="label-mono-sm text-ink/70">
               Service {String(service.index).padStart(2, "0")} of 05
             </span>
           </div>
@@ -61,7 +61,7 @@ export function ServicePage({ service }: { service: Service }) {
             <CTA href="/contact" event="cta_book_session">
               Book a Working Session
             </CTA>
-            <span className="label-mono-sm text-ink/55">
+            <span className="label-mono-sm text-ink/70">
               Typical build {service.engagement.duration.toLowerCase()}
             </span>
           </div>
@@ -140,7 +140,7 @@ export function ServicePage({ service }: { service: Service }) {
                   </div>
                 ))}
               </div>
-              <p className="label-mono-sm mt-5 text-ink/40">
+              <p className="label-mono-sm mt-5 text-ink/65">
                 A representative engagement, anonymized
               </p>
             </div>
@@ -157,7 +157,7 @@ export function ServicePage({ service }: { service: Service }) {
                 <p className="display-1 text-blue">
                   {service.engagement.duration}
                 </p>
-                <p className="label-mono-sm mt-3 text-ink/45">
+                <p className="label-mono-sm mt-3 text-ink/70">
                   Fixed price, fixed scope
                 </p>
               </div>
@@ -175,7 +175,7 @@ export function ServicePage({ service }: { service: Service }) {
               href={prev.href}
               className="group flex flex-col gap-2 border-b border-ink/20 py-10 pr-8 transition-colors hover:bg-ink hover:px-6 hover:text-paper sm:border-b-0 sm:border-r"
             >
-              <span className="label-mono-sm text-ink/45 group-hover:text-paper/50">
+              <span className="label-mono-sm text-ink/70 group-hover:text-paper/65">
                 Previous service
               </span>
               <span className="display-3">
@@ -187,7 +187,7 @@ export function ServicePage({ service }: { service: Service }) {
               href={next.href}
               className="group flex flex-col gap-2 py-10 text-right transition-colors hover:bg-ink hover:px-6 hover:text-paper sm:pl-8"
             >
-              <span className="label-mono-sm text-ink/45 group-hover:text-paper/50">
+              <span className="label-mono-sm text-ink/70 group-hover:text-paper/65">
                 Next service
               </span>
               <span className="display-3">

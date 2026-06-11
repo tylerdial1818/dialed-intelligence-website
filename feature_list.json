@@ -1,6 +1,140 @@
 {
-  "project": "[PROJECT_NAME]",
+  "project": "dialed-intelligence-website",
   "version": "1.0.0",
-  "generated": "[GENERATION_DATE]",
-  "features": []
+  "generated": "2026-06-10",
+  "features": [
+    {
+      "id": "001",
+      "name": "Design foundation and global chrome",
+      "description": "Brand tokens, type system, header with mobile menu, footer, CTA bands, ownership band, process strip, marquee, scroll reveals",
+      "acceptance": [
+        "Tokens match the brand sheet (ink 2D2A2B, paper E6E6E4, blue 346AEA, lime CDDD3C)",
+        "Fonts are Space Grotesk, Hanken Grotesk, Space Mono",
+        "Reveals degrade gracefully without JS and under prefers-reduced-motion",
+        "Mobile menu closes on navigation and Escape"
+      ],
+      "passes": true
+    },
+    {
+      "id": "002",
+      "name": "Home page",
+      "description": "Hero, marquee, triangulation block, services list, ownership band, process strip, credibility strip, closing CTA",
+      "acceptance": [
+        "Outline section 3.1 copy used verbatim",
+        "Triangulation panel three is visually emphasized",
+        "All five service rows link to detail pages"
+      ],
+      "passes": true
+    },
+    {
+      "id": "003",
+      "name": "Service detail system",
+      "description": "One template, five content files, prev/next navigation, per-service OG images",
+      "acceptance": [
+        "All five routes statically generated from one template",
+        "Outline sections 3.3a-e used verbatim for problem, build, get, engagement",
+        "Practice walkthroughs are anonymized, conservative, and labeled representative",
+        "Activepieces is never named anywhere"
+      ],
+      "passes": true
+    },
+    {
+      "id": "004",
+      "name": "Services hub",
+      "description": "Header, architecture story with HTML diagram, five service summary blocks, closing CTA",
+      "acceptance": [
+        "Diagram shows the data foundation, three modules, and the platform chassis",
+        "Rows read title, problem statement, description, duration, link"
+      ],
+      "passes": true
+    },
+    {
+      "id": "005",
+      "name": "Ownership manifesto",
+      "description": "Dark hero, four-passage argument, practical FAQ, closing CTA",
+      "acceptance": [
+        "Build it. You own it. at display scale",
+        "Outline passages verbatim",
+        "FAQ uses native details/summary, keyboard accessible"
+      ],
+      "passes": true
+    },
+    {
+      "id": "006",
+      "name": "Approach page",
+      "description": "Four engagement stages in depth, what-we-are-not section, closing CTA",
+      "acceptance": [
+        "Stage bodies verbatim from outline section 3.5",
+        "Each stage shows what you walk away with and how long it takes"
+      ],
+      "passes": true
+    },
+    {
+      "id": "007",
+      "name": "About page",
+      "description": "Firm story, four principles, typographic founder block, closing CTA",
+      "acceptance": [
+        "Outline section 3.6 copy verbatim",
+        "No stock photos or fake imagery, typographic founder panel until a real photo lands"
+      ],
+      "passes": true
+    },
+    {
+      "id": "008",
+      "name": "Contact page and form API",
+      "description": "Headline, expectation block, optional scheduler embed, validated form, spam-protected route handler",
+      "acceptance": [
+        "POST /api/contact validates, honeypots, and time-traps (verified by request tests)",
+        "Email delivery via Resend env vars, graceful no-op without them",
+        "Control characters stripped, name and company forced single-line",
+        "Form is client-validated with accessible error wiring"
+      ],
+      "passes": true
+    },
+    {
+      "id": "009",
+      "name": "Insights system",
+      "description": "Markdown pipeline, index page, article template, three launch essays",
+      "acceptance": [
+        "Posts render from content/insights with computed reading time",
+        "Three essays at 650-900 words obeying every copy rule",
+        "Adding a markdown file is the only publishing step"
+      ],
+      "passes": true
+    },
+    {
+      "id": "010",
+      "name": "SEO and sharing infrastructure",
+      "description": "sitemap.xml, robots.txt, branded OG images for every route, branded 404, security headers",
+      "acceptance": [
+        "All routes in the sitemap including posts",
+        "OG images render the mark, eyebrow, and title on ink at 1200x630",
+        "Unique colon-free titles and descriptions on every page"
+      ],
+      "passes": true
+    },
+    {
+      "id": "011",
+      "name": "Copy rules compliance",
+      "description": "Binding rules from the outline enforced across all rendered copy",
+      "acceptance": [
+        "No em-dashes, semicolons, or colons in rendered copy",
+        "Banned vocabulary absent (grep-verified)",
+        "Build it, you own it present on every page via footer or section",
+        "No pricing anywhere"
+      ],
+      "passes": true
+    },
+    {
+      "id": "012",
+      "name": "Accessibility floor",
+      "description": "Contrast, focus, motion, semantics",
+      "acceptance": [
+        "Informational text meets WCAG AA contrast (computed and swept)",
+        "Visible focus states, skip link, semantic landmarks, aria-labelledby sections",
+        "prefers-reduced-motion disables marquee and reveals"
+      ],
+      "passes": true
+    }
+  ]
 }
