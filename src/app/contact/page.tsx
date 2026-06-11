@@ -32,7 +32,7 @@ export default function ContactPage() {
               <Eyebrow>Start a conversation</Eyebrow>
               <h1
                 id="contact-title"
-                className="mt-8 font-display text-[clamp(2.6rem,6vw,4.75rem)] font-semibold leading-[0.97] tracking-[-0.035em] text-balance"
+                className="mt-8 font-display text-[clamp(2.6rem,6vw,4.75rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
               >
                 Bring us the problem.
               </h1>

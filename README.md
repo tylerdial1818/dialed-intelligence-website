@@ -51,8 +51,8 @@ content/insights/        markdown posts (frontmatter: title, summary, date)
 | `blue` | `#346AEA` | accent, links, CTAs, indices |
 | `lime` | `#CDDD3C` | rare highlight, CTA band and dark-surface accents only |
 
-Type: Space Grotesk (display), Hanken Grotesk (body), Space Mono (labels,
-indices). Utilities `display-hero/1/2/3`, `label-mono`, `body-lg/md` are
+Type: PP Neue Montreal (display and body, self-hosted in `src/fonts/`,
+licensed separately), Space Mono (labels, indices). Utilities `display-hero/1/2/3`, `label-mono`, `body-lg/md` are
 defined in `src/app/globals.css`.
 
 ## Content rules

@@ -25,15 +25,15 @@ const LIME = "#CDDD3C";
 
 async function loadFonts() {
   const dir = path.join(process.cwd(), "src", "lib", "og-fonts");
-  const [grotesk, mono] = await Promise.all([
-    readFile(path.join(dir, "space-grotesk-v22-latin-600.ttf")),
+  const [montreal, mono] = await Promise.all([
+    readFile(path.join(process.cwd(), "src", "fonts", "PPNeueMontreal-Medium.otf")),
     readFile(path.join(dir, "space-mono-v17-latin-regular.ttf")),
   ]);
   return [
     {
-      name: "Space Grotesk",
-      data: grotesk,
-      weight: 600 as const,
+      name: "PP Neue Montreal",
+      data: montreal,
+      weight: 500 as const,
       style: "normal" as const,
     },
     {
@@ -99,8 +99,8 @@ export async function brandOgImage({
         <div
           style={{
             display: "flex",
-            fontFamily: "Space Grotesk",
-            fontWeight: 600,
+            fontFamily: "PP Neue Montreal",
+            fontWeight: 500,
             fontSize: titleSize,
             lineHeight: 1.02,
             letterSpacing: -2,
@@ -122,8 +122,8 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "Space Grotesk",
-              fontWeight: 600,
+              fontFamily: "PP Neue Montreal",
+              fontWeight: 500,
               fontSize: 26,
               color: PAPER,
             }}

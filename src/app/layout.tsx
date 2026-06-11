@@ -1,20 +1,41 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Hanken_Grotesk, Space_Mono } from "next/font/google";
+import { Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken",
+const neueMontreal = localFont({
+  src: [
+    {
+      path: "../fonts/PPNeueMontreal-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/PPNeueMontreal-Italic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../fonts/PPNeueMontreal-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/PPNeueMontreal-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/PPNeueMontreal-BoldItalic.otf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-neue-montreal",
   display: "swap",
 });
 
@@ -51,7 +72,7 @@ export default function RootLayout({
       // The inline script below adds a "js" class before hydration so scroll
       // reveals only hide content when JS is actually running.
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${hankenGrotesk.variable} ${spaceMono.variable}`}
+      className={`${neueMontreal.variable} ${spaceMono.variable}`}
     >
       <body className="flex min-h-svh flex-col">
         <script

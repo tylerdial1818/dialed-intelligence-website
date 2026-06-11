@@ -8,8 +8,10 @@
   --color-blue: #346aea;
   --color-blue-2: #2a57c4;
   --color-lime: #cddd3c;
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-display: var(--font-neue-montreal), "Helvetica Neue", system-ui,
+    sans-serif;
+  --font-sans: var(--font-neue-montreal), "Helvetica Neue", system-ui,
+    sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
@@ -50,7 +52,7 @@ body {
 
 @utility display-hero {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(2.9rem, 7vw, 6.25rem);
   line-height: 0.95;
   letter-spacing: -0.035em;
@@ -59,7 +61,7 @@ body {
 
 @utility display-1 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(2.1rem, 4.4vw, 3.75rem);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -68,7 +70,7 @@ body {
 
 @utility display-2 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.7rem, 3.2vw, 2.625rem);
   line-height: 1.04;
   letter-spacing: -0.025em;
@@ -158,7 +160,7 @@ body {
 
 .prose-di h2 {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.75rem;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -177,7 +179,7 @@ body {
 }
 
 .prose-di strong {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-ink);
 }
 

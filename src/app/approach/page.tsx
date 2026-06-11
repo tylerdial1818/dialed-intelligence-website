@@ -98,7 +98,7 @@ function StageBlock({
             <div className={flip ? "lg:order-2" : ""}>
               <span
                 aria-hidden="true"
-                className={`block select-none font-display text-[6rem] font-semibold leading-[0.8] tracking-[-0.04em] sm:text-[8rem] lg:text-[10rem] ${
+                className={`block select-none font-display text-[6rem] font-medium leading-[0.8] tracking-[-0.04em] sm:text-[8rem] lg:text-[10rem] ${
                   dark ? "text-paper/10" : "text-ink/10"
                 }`}
               >
@@ -161,7 +161,7 @@ export default function ApproachPage() {
           </div>
           <h1
             id="approach-title"
-            className="mt-8 max-w-4xl font-display text-[clamp(2.3rem,4.6vw,4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance"
+            className="mt-8 max-w-4xl font-display text-[clamp(2.3rem,4.6vw,4rem)] font-medium leading-[1.02] tracking-[-0.03em] text-balance"
           >
             A process designed so you can stop at any point and still be glad
             you started.

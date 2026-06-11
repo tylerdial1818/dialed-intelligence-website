@@ -25,7 +25,7 @@ export default function InsightsPage() {
           <Eyebrow>Insights</Eyebrow>
           <h1
             id="insights-title"
-            className="mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-balance"
+            className="mt-8 max-w-4xl font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-medium leading-[1.02] tracking-[-0.03em] text-balance"
           >
             Thinking that survives contact with production.
           </h1>

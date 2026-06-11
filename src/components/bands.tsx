@@ -29,7 +29,7 @@ export function ClosingCTA({
             <span className="label-mono text-ink/70">[ {eyebrow} ]</span>
             <h2
               id="closing-cta-title"
-              className="mt-5 font-display text-[clamp(2.2rem,5vw,4.25rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-balance"
+              className="mt-5 font-display text-[clamp(2.2rem,5vw,4.25rem)] font-medium leading-[0.98] tracking-[-0.03em] text-balance"
             >
               {title}
             </h2>
@@ -64,7 +64,7 @@ export function OwnershipBand({
             </Eyebrow>
             <h2
               id="ownership-band-title"
-              className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] font-semibold leading-[0.95] tracking-[-0.035em]"
+              className="mt-7 font-display text-[clamp(3rem,8vw,7rem)] font-medium leading-[0.95] tracking-[-0.035em]"
             >
               Build it.
               <br />
