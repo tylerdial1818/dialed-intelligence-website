@@ -35,3 +35,23 @@
 # FINDINGS  | 0 critical / 1 warning / 0 info
 # NEXT      | Proceed to PR
 # BLOCKERS  | None
+
+SESSION   | 2026-06-10 | orchestrator (Claude)
+COMPLETED | Full v1 site. Design foundation, home, services hub, five service
+          | detail pages (one template + content files), ownership manifesto,
+          | approach, about, contact + form API, insights system with three
+          | launch essays, sitemap/robots/OG images, branded 404.
+TESTS     | lint clean, typecheck clean, build green (33 static pages),
+          | contact API request-tested (valid/invalid/honeypot/time-trap/
+          | oversize), 32 full-page screenshots reviewed at 1440 and 390.
+REVIEWS   | Per-surface copy audits (11 agents) all clean. Visual, code,
+          | security, and a11y review completed by orchestrator after the
+          | subagent pool hit the session limit. Fixes applied: WCAG AA
+          | contrast sweep, footer copyright spacing, 404 watermark, mobile
+          | menu Escape handling, email header-injection hardening, scheduler
+          | iframe sandbox, security headers.
+COMMITTED | feat: complete v1 marketing site (build/v1-site branch)
+NEXT      | Human tasks before launch. Set NEXT_PUBLIC_SCHEDULER_URL,
+          | RESEND_API_KEY, CONTACT_TO_EMAIL in Vercel. Update LinkedIn URL
+          | in src/lib/site.ts. Supply founder photo for /about. Deploy.
+BLOCKERS  | None

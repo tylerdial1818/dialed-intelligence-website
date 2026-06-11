@@ -1,34 +1,47 @@
-__pycache__/
-*.py[cod]
-*.egg-info/
-.venv/
-venv/
-dist/
-build/
-.eggs/
-*.egg
-.pytest_cache/
-.coverage
-htmlcov/
-.mypy_cache/
-.ruff_cache/
+# dependencies
 node_modules/
+.pnp
+.pnp.*
+
+# next.js
 .next/
+out/
 .turbo/
+next-env.d.ts
+*.tsbuildinfo
+
+# testing
+coverage/
+
+# env and secrets
 .env
 .env.*
 !.env.example
 secrets/
 credentials/
-.claude/audit.log
-.claude/worktrees/
-.DS_Store
-Thumbs.db
-.vscode/settings.json
-.idea/
-*.swp
 *.pem
 *.key
 *.pfx
 *.p12
 *.p8
+
+# vercel
+.vercel
+
+# claude agent artifacts (personal / machine-local)
+.claude/audit.log
+.claude/worktrees/
+.claude/settings.local.json
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+.idea/
+*.swp
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
