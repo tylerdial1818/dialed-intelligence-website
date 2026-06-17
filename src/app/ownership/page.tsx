@@ -26,7 +26,7 @@ const passages = [
   },
   {
     heading: "What ownership actually means here.",
-    body: "When an engagement ends, you hold the code, the data, the documentation, and the infrastructure. Run it forever without us. Hire anyone you like to extend it. Audit every line. We keep our internal tooling and methods, you keep everything we shipped for you, and that line is written explicitly into every contract so there is never a question.",
+    body: "When an engagement ends, you hold the code, the data, the documentation, the infrastructure, and the capability the system represents. Run it forever without us. Hire anyone you like to extend it. Audit every line. We keep our internal tooling and methods, you keep everything we shipped for you, and that line is written explicitly into every contract so there is never a question.",
   },
   {
     heading: "Why this is good business for us too.",

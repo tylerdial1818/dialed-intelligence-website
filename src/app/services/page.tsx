@@ -8,12 +8,12 @@ import { Reveal } from "@/components/reveal";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Five areas cover most of what we are asked to build. Every engagement starts from a named problem and ends with working software you own.",
+    "Five areas cover most of what we are asked to build. Every engagement starts from a named problem and ends with an AI system you own.",
   alternates: { canonical: "/services" },
 };
 
 const intro =
-  "Every engagement starts from a named problem and ends with working software you own. These five areas cover most of what we are asked to build. If your problem does not fit neatly into one of them, that is usually a sign it is interesting. Bring it to a working session.";
+  "Every engagement starts from a named problem and ends with an AI system you own. These five areas cover most of what we are asked to build. If your problem does not fit neatly into one of them, that is usually a sign it is interesting. Bring it to a working session.";
 
 const architectureQuote =
   "Most clients start with one painful workflow or one unanswerable question. The systems compound from there. Agents work better on unified data. Pricing works better with live inventory. Everything works better when you own the whole stack and nothing is fighting a vendor's API limits.";
@@ -98,7 +98,7 @@ export default function ServicesPage() {
             id="services-title"
             className="mt-8 max-w-4xl font-display text-[clamp(2.4rem,5.4vw,4.75rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
           >
-            We build the systems your operation is missing.
+            Every system here starts as a question worth answering.
           </h1>
           <p className="body-lg mt-8 max-w-2xl text-ink/75">{intro}</p>
         </Container>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
           <Reveal>
             <Eyebrow>Five service areas</Eyebrow>
             <h2 id="service-list-title" className="display-1 mt-5 max-w-3xl">
-              Each one starts from a named problem
+              Each one answers a question that costs you money
             </h2>
           </Reveal>
           <div className="mt-14 border-t border-ink/20">

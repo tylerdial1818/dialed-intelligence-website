@@ -1,59 +1,30 @@
 import type { Metadata } from "next";
-import { Space_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const neueMontreal = localFont({
-  src: [
-    {
-      path: "../fonts/PPNeueMontreal-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/PPNeueMontreal-Italic.otf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../fonts/PPNeueMontreal-Medium.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../fonts/PPNeueMontreal-Bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../fonts/PPNeueMontreal-BoldItalic.otf",
-      weight: "700",
-      style: "italic",
-    },
-  ],
-  variable: "--font-neue-montreal",
-  display: "swap",
-});
-
-const spaceMono = Space_Mono({
+// The brand sans is Helvetica Neue per the brand book. It ships as a system
+// stack (no webfont license for Helvetica Neue LT), so only the mono loads
+// as a webfont. The stack lives in globals.css under @theme.
+const robotoMono = Roboto_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-space-mono",
+  variable: "--font-roboto-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Dialed Intelligence | Custom systems, built in weeks, owned by you",
+    default:
+      "Dialed Intelligence | We find your most valuable question and build the AI that answers it",
     template: "%s | Dialed Intelligence",
   },
   description:
-    "Dialed Intelligence designs and builds custom data systems, AI agents, and automation for companies that are done renting software and done paying for advice nobody executes.",
+    "Dialed Intelligence diagnoses the highest-value problem in your operation, then builds the AI system that solves it and leaves it running. You own the result.",
   openGraph: {
     siteName: "Dialed Intelligence",
     type: "website",
@@ -72,7 +43,7 @@ export default function RootLayout({
       // The inline script below adds a "js" class before hydration so scroll
       // reveals only hide content when JS is actually running.
       suppressHydrationWarning
-      className={`${neueMontreal.variable} ${spaceMono.variable}`}
+      className={robotoMono.variable}
     >
       <body className="flex min-h-svh flex-col">
         <script

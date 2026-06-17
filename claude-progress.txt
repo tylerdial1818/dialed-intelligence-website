@@ -55,3 +55,13 @@ NEXT      | Human tasks before launch. Set NEXT_PUBLIC_SCHEDULER_URL,
           | RESEND_API_KEY, CONTACT_TO_EMAIL in Vercel. Update LinkedIn URL
           | in src/lib/site.ts. Supply founder photo for /about. Deploy.
 BLOCKERS  | None
+
+--- 2026-06-11 ---
+COMMITTED | design: adopt brand book typography (design/helvetica-typography branch)
+          | Sans is now the Helvetica Neue system stack, mono is Roboto Mono.
+          | PP Neue Montreal and Space fonts removed. OG images use Arimo 500
+          | plus Roboto Mono. Verified in preview and clean production build.
+NEXT      | Push branch and open PR when ready. Optional upgrade path is
+          | licensing Helvetica Neue LT and Helvetica Monospaced Pro webfonts
+          | from Monotype, then swapping them into the same CSS variables.
+BLOCKERS  | None

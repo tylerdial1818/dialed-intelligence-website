@@ -18,6 +18,6 @@ export default async function Image({
   const service = getService(slug);
   return brandOgImage({
     eyebrow: service?.title ?? "Services",
-    title: service?.headline ?? "We build the systems your operation is missing.",
+    title: service?.headline ?? "Every system here starts as a question worth answering.",
   });
 }

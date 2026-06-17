@@ -3,12 +3,12 @@ import { brandOgImage, ogSize } from "@/lib/og";
 export const size = ogSize;
 export const contentType = "image/png";
 export const alt =
-  "Dialed Intelligence. We build the software your business is missing. You own every line of it.";
+  "Dialed Intelligence. We find your most valuable question and build the AI that answers it.";
 
 export default async function Image() {
   return brandOgImage({
-    eyebrow: "Custom systems. Built in weeks. Owned by you.",
+    eyebrow: "Strategy that ends in a running system. Owned by you.",
     title:
-      "We build the software your business is missing. You own every line of it.",
+      "We find your most valuable question and build the AI that answers it.",
   });
 }
