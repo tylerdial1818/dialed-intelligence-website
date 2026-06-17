@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { LogoMark } from "@/components/logo";
 import { Container, Eyebrow, Index, SectionHeader } from "@/components/primitives";
-import { TextLink } from "@/components/cta";
 import { ClosingCTA } from "@/components/bands";
 import { Reveal } from "@/components/reveal";
-import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -39,10 +36,6 @@ const principles = [
     body: "What we ship is yours, and the contract says so in plain language.",
   },
 ];
-
-// Outline section 3.6, founder bio draft, verbatim.
-const founderBio =
-  "Tyler Dial founded Dialed Intelligence after a career spanning economics research, investment banking, and AI engineering for consulting firms serving private equity and hedge funds. He holds a Master of Science in Data Science from Northwestern University and speaks regularly on AI engineering for quantitative practitioners.";
 
 /** Local mirror of the service-page editorial two-column row. */
 function SectionRow({
@@ -133,43 +126,28 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Founder */}
-      <section aria-labelledby="founder-name" className="bg-ink text-paper">
+      {/* The firm */}
+      <section aria-labelledby="firm-title" className="border-t border-ink/15">
         <Container className="py-24 lg:py-32">
-          <Eyebrow dark lime>
-            Founder
-          </Eyebrow>
-          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-20">
-            {/* A real photo of Tyler replaces this typographic panel when supplied. */}
-            <Reveal className="flex">
-              <div className="flex min-h-[320px] w-full flex-col justify-between rounded-[5px] border border-paper/20 bg-ink-2 p-8 lg:min-h-[420px] lg:p-10">
-                <LogoMark width={170} className="text-lime" />
-                <div className="flex items-end justify-between gap-6">
-                  <span className="font-mono text-3xl text-paper/80">TD</span>
-                  <span className="label-mono-sm text-right text-paper/55">
-                    Founder, Dialed Intelligence
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={100}>
-              <h2 id="founder-name" className="display-2">
-                Tyler Dial
+          <Reveal>
+            <div className="max-w-3xl">
+              <Eyebrow>The firm</Eyebrow>
+              <h2 id="firm-title" className="display-1 mt-5">
+                Small by design, deep by necessity.
               </h2>
-              <p className="body-lg mt-6 max-w-2xl text-paper/70">{founderBio}</p>
-              <div className="mt-8">
-                <TextLink href={site.linkedin} dark>
-                  Find Tyler on LinkedIn
-                </TextLink>
-              </div>
-            </Reveal>
-          </div>
+              <p className="body-lg mt-6 max-w-2xl text-ink/75">
+                Dialed Intelligence stays deliberately small so the people who
+                diagnose your problem are the people who build the solution.
+                Nothing gets lost in a handoff between a strategy team and a
+                delivery team, because there is no handoff. You work with the
+                firm from the first question to the running system.
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <div className="pt-20 lg:pt-28">
-        <ClosingCTA />
-      </div>
+      <ClosingCTA />
     </>
   );
 }

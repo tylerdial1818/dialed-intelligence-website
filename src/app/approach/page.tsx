@@ -16,7 +16,7 @@ const stages = [
   {
     n: "01",
     name: "The Working Session",
-    body: "One hour, free, and not a sales call. We sit with you and map where your operation actually loses time and money. We ask the questions your last vendor did not. You leave with at least one observation worth having, whether or not we ever speak again. If we do not think we can help, we will say so in the room.",
+    body: "One hour, free, and not a sales call. We sit with you and find the single question worth the most to answer in your business. We ask the questions your last vendor did not. You leave with at least one observation worth having, whether or not we ever speak again. If we do not think we can help, we will say so in the room.",
     walkAway: "At least one observation worth having",
     duration: "One hour, free",
   },

@@ -8,7 +8,7 @@ import { ctaHref, ctaLabel } from "@/lib/site";
  */
 export function ClosingCTA({
   eyebrow = "The first step",
-  title = "Bring us your most annoying operational problem.",
+  title = "Bring us the question you can't answer.",
   body = "The first hour is free, it is a working session rather than a sales call, and you will leave with something useful either way.",
   event = "cta_book_session",
 }: {
@@ -95,7 +95,7 @@ const processSteps = [
   {
     title: "Working session",
     duration: "One hour, free",
-    body: "A free hour where we map your most expensive operational time-sinks. You leave with at least one useful observation whether or not we ever talk again.",
+    body: "A free hour where we name the single question worth the most to answer in your business. You leave with at least one useful observation whether or not we ever talk again.",
   },
   {
     title: "Diagnostic",

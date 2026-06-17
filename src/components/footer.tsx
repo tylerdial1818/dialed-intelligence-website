@@ -90,7 +90,7 @@ export function Footer() {
             {`© ${new Date().getFullYear()} Dialed Intelligence®`}
           </p>
           <p className="font-mono text-xs text-paper/60">
-            Custom systems. Built in weeks. Owned by you.
+            Strategy that ends in a running system. Owned by you.
           </p>
         </div>
       </Container>

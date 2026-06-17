@@ -3,11 +3,11 @@ import { brandOgImage, ogSize } from "@/lib/og";
 export const size = ogSize;
 export const contentType = "image/png";
 export const alt =
-  "Dialed Intelligence services. We build the systems your operation is missing.";
+  "Dialed Intelligence services. Each system starts as a question worth answering.";
 
 export default async function Image() {
   return brandOgImage({
     eyebrow: "Services",
-    title: "We build the systems your operation is missing.",
+    title: "Every system here starts as a question worth answering.",
   });
 }

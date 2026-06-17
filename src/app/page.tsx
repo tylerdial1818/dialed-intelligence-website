@@ -6,49 +6,49 @@ import { ClosingCTA, OwnershipBand, ProcessStrip, Marquee } from "@/components/b
 import { Reveal } from "@/components/reveal";
 
 const heroProofPoints = [
-  "Fixed price builds",
-  "Working software in three to eight weeks",
-  "No recurring license, ever",
+  "Your question, found in the first hour",
+  "A working system in weeks",
+  "You own every line",
 ];
 
 const marqueeItems = [
-  "OPERATIONS AUTOMATION",
+  "DECISION SYSTEMS",
   "UNIFIED DATA SYSTEMS",
   "AI AGENTS",
-  "INVENTORY INTELLIGENCE",
-  "DYNAMIC PRICING",
-  "WORKFLOW PLATFORMS",
+  "DEMAND FORECASTING",
+  "MARGIN RECOVERY",
+  "OPERATIONS COPILOTS",
   "HUMAN IN THE LOOP",
-  "FIXED PRICE BUILDS",
+  "OWNED OUTRIGHT",
 ];
 
-// Card copy is specified in the outline's Home section and is independent
-// of the service detail content files.
+// Card copy leads with the question each system answers. Independent of the
+// service detail content files.
 const serviceCards = [
   {
     href: "/services/operations-automation",
     title: "Operations Automation",
-    desc: "Repetitive work between your systems, handled by agents your team supervises.",
+    desc: "Where is repetitive work eating my best people? Operations automation handles the work between your systems, supervised by your team.",
   },
   {
     href: "/services/data-systems",
     title: "Unified Data Systems",
-    desc: "Every source of truth in one place. Ask your business plain-English questions and trust the answers.",
+    desc: "What is actually true across my business right now? Every source of truth in one place, answerable in plain English, trustworthy enough to act on.",
   },
   {
     href: "/services/automation-platform",
     title: "Your Own Automation Platform",
-    desc: "A workflow automation platform deployed on your infrastructure, under your brand, with no per-seat license ever.",
+    desc: "Why am I renting my own workflows? A workflow automation platform on your infrastructure, under your brand, with no per-seat license ever.",
   },
   {
     href: "/services/inventory",
     title: "Inventory Intelligence",
-    desc: "Reorder logic built around how your business actually works, not a template.",
+    desc: "What should I reorder, and when? Reorder logic built around how your business actually works, not a template.",
   },
   {
     href: "/services/pricing",
     title: "Dynamic Pricing",
-    desc: "Margin recovery across the long tail of your catalog, driven by real demand modeling.",
+    desc: "Where is margin quietly leaking? Margin recovery across the long tail of your catalog, driven by real demand modeling.",
   },
 ];
 
@@ -65,20 +65,23 @@ export default function Home() {
       {/* Hero */}
       <section aria-labelledby="hero-title">
         <Container className="pb-14 pt-16 lg:pb-16 lg:pt-24">
-          <Eyebrow>Custom data systems, AI agents, and automation</Eyebrow>
+          <Eyebrow>Strategy that ends in a running system</Eyebrow>
           <div className="mt-9 grid grid-cols-1 items-end gap-12 lg:grid-cols-[minmax(0,1fr)_270px]">
             <div>
               <h1
                 id="hero-title"
                 className="font-display text-[clamp(2.6rem,6.4vw,5.5rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
               >
-                We build the software your business is missing.{" "}
-                <em className="text-blue">You own every line of it.</em>
+                Your most expensive question is the one nobody has answered
+                yet.{" "}
+                <em className="text-blue">
+                  We find it, then we build the AI that answers it for good.
+                </em>
               </h1>
               <p className="body-lg mt-8 max-w-xl text-ink/75">
-                Dialed Intelligence designs and builds custom data systems, AI
-                agents, and automation for companies that are done renting
-                software and done paying for advice nobody executes.
+                Dialed Intelligence diagnoses the highest-value problem in your
+                operation, then builds the AI system that solves it and leaves
+                it running inside your business. You own the result.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <CTA href="/contact" event="cta_book_session">
@@ -153,9 +156,10 @@ export default function Home() {
                   We do both halves.
                 </h3>
                 <p className="body-md relative mt-4 text-paper/70">
-                  We diagnose your operation like a strategy firm, then build
-                  the exact system the diagnosis calls for. When we hand it
-                  over, it is yours. The code, the data, the asset.
+                  We diagnose your operation like a strategy firm, find the
+                  single problem worth the most to solve, then build the AI
+                  system that solves it. When we hand it over, the capability is
+                  yours. The code, the data, the asset.
                 </p>
               </article>
             </Reveal>
@@ -169,7 +173,7 @@ export default function Home() {
           <Reveal>
             <SectionHeader
               eyebrow="What we build"
-              title={<span id="what-we-build-title">Five systems, one standard</span>}
+              title={<span id="what-we-build-title">{'What "solved" looks like'}</span>}
               right={<TextLink href="/services">The full services picture</TextLink>}
             />
           </Reveal>
@@ -204,6 +208,26 @@ export default function Home() {
 
       <OwnershipBand />
 
+      {/* Consulting on-ramp */}
+      <section aria-labelledby="consulting-onramp-title" className="border-t border-ink/15">
+        <Container className="py-24 lg:py-32">
+          <Reveal>
+            <div className="max-w-3xl">
+              <Eyebrow>Consulting, if that is all you need</Eyebrow>
+              <h2 id="consulting-onramp-title" className="display-1 mt-5">
+                Not ready to build? Start with the thinking.
+              </h2>
+              <p className="body-lg mt-6 max-w-2xl text-ink/75">
+                Some engagements stay advisory. We map where AI creates real
+                value in your operation, rank it by return, and hand you a plan
+                you could take anywhere. Most clients ask us to build it. You do
+                not have to.
+              </p>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* How an engagement works */}
       <section aria-labelledby="engagement-title">
         <Container className="py-24 lg:py-32">
@@ -232,9 +256,9 @@ export default function Home() {
             <Reveal>
               <Eyebrow>Who does the work</Eyebrow>
               <h2 id="credibility-title" className="display-2 mt-6 max-w-2xl text-balance">
-                Built by practitioners with backgrounds in econometrics,
-                investment banking, management consulting, and production AI
-                engineering.
+                Built by practitioners who ship production AI systems, with
+                backgrounds in econometrics, investment banking, and management
+                consulting.
               </h2>
               <p className="body-lg mt-6 max-w-xl text-ink/75">
                 We have shipped multi-agent systems, unified data platforms,

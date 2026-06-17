@@ -19,11 +19,12 @@ const robotoMono = Roboto_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Dialed Intelligence | Custom systems, built in weeks, owned by you",
+    default:
+      "Dialed Intelligence | We find your most valuable question and build the AI that answers it",
     template: "%s | Dialed Intelligence",
   },
   description:
-    "Dialed Intelligence designs and builds custom data systems, AI agents, and automation for companies that are done renting software and done paying for advice nobody executes.",
+    "Dialed Intelligence diagnoses the highest-value problem in your operation, then builds the AI system that solves it and leaves it running. You own the result.",
   openGraph: {
     siteName: "Dialed Intelligence",
     type: "website",
