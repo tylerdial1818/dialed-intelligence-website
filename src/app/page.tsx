@@ -19,7 +19,6 @@ const marqueeItems = [
   "MARGIN RECOVERY",
   "OPERATIONS COPILOTS",
   "HUMAN IN THE LOOP",
-  "OWNED OUTRIGHT",
 ];
 
 // Card copy leads with the question each system answers. Independent of the
