@@ -46,6 +46,14 @@ export function ClosingCTA({
   );
 }
 
+// Handover durability, stated as features rather than buried. Answers the
+// "what happens when it breaks and you are gone" objection.
+const handoverPoints = [
+  "We hand it over documented and tested, not as a black box.",
+  "Your team gets the walkthrough and the docs to run it without us.",
+  "Support stays optional and never becomes a subscription you cannot leave.",
+];
+
 /**
  * The ownership brand moment. Full-width ink band.
  */
@@ -74,9 +82,20 @@ export function OwnershipBand({
           <div className="max-w-md lg:justify-self-end">
             <p className="body-lg text-paper/65">
               No seats. No recurring license. No platform to learn. We build
-              the system, we hand you the keys, and we are only in your stack
-              for as long as you want us there.
+              the system, we hand you the keys, and we step back as far as you
+              want.
             </p>
+            <ul className="mt-7 flex flex-col gap-3 border-t border-paper/20 pt-6">
+              {handoverPoints.map((point) => (
+                <li key={point} className="flex items-baseline gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="mt-[7px] size-[6px] shrink-0 bg-lime"
+                  />
+                  <span className="body-md text-paper/70">{point}</span>
+                </li>
+              ))}
+            </ul>
             {showLink && (
               <div className="mt-8">
                 <TextLink href="/ownership" dark>
@@ -100,7 +119,7 @@ const processSteps = [
   {
     title: "Diagnostic",
     duration: "One to two weeks",
-    body: "A short fixed-fee engagement that produces a costed, decision-ready plan. The problem quantified, the system described in plain terms, a fixed price and timeline, the expected return.",
+    body: "A short fixed-fee engagement built around one output, the expected return. We quantify the problem, set a fixed price and a timeline, and put the return you can expect on paper before you commit to a build.",
   },
   {
     title: "Build",

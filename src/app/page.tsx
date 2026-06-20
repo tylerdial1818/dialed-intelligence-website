@@ -6,9 +6,9 @@ import { ClosingCTA, OwnershipBand, ProcessStrip, Marquee } from "@/components/b
 import { Reveal } from "@/components/reveal";
 
 const heroProofPoints = [
-  "Your question, found in the first hour",
+  "The problem found in your first hour",
   "A working system in weeks",
-  "You own every line",
+  "You own it outright, no recurring license",
 ];
 
 const marqueeItems = [
@@ -59,6 +59,46 @@ const disciplines = [
   "Production AI engineering",
 ];
 
+// DRAFT engagement vignettes, pending Tyler's approval before they ship.
+// These describe real engagement shapes with no client names attached and no
+// metrics claimed yet. Add a `metric` string to any entry to surface a
+// quantified result. The card renders the metric only when it is present, so
+// the layout does not change when numbers are filled in later.
+type Engagement = {
+  client: string;
+  problem: string;
+  system: string;
+  outcome: string;
+  metric?: string;
+};
+
+const engagements: Engagement[] = [
+  {
+    client: "PE-backed skilled-nursing operator",
+    problem:
+      "Compliance gaps in MDS and PDPM documentation kept surfacing after submission, when they were expensive to fix.",
+    system:
+      "A documentation system that reads each record and flags the gaps before anything is filed.",
+    outcome: "Reviewers catch problems while they are still cheap to correct.",
+  },
+  {
+    client: "Public-sector data engagement",
+    problem:
+      "Divisions held data that could never be reconciled across the organization.",
+    system:
+      "A unified data layer that makes every division answerable from one place.",
+    outcome: "Leadership works from one version of the truth instead of five.",
+  },
+  {
+    client: "Research consultancy",
+    problem:
+      "Lead intelligence sat scattered across many sources and got sorted by hand.",
+    system:
+      "A multi-agent system that pulls those sources together and classifies leads automatically.",
+    outcome: "Analysts spend their hours on judgment, not collection.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -72,16 +112,15 @@ export default function Home() {
                 id="hero-title"
                 className="font-display text-[clamp(2.6rem,6.4vw,5.5rem)] font-medium leading-[0.97] tracking-[-0.035em] text-balance"
               >
-                Your most expensive question is the one nobody has answered
-                yet.{" "}
+                We find what is costing you most, then{" "}
                 <em className="text-blue">
-                  We find it, then we build the AI that answers it for good.
+                  build the system that fixes it.
                 </em>
               </h1>
               <p className="body-lg mt-8 max-w-xl text-ink/75">
-                Dialed Intelligence diagnoses the highest-value problem in your
-                operation, then builds the AI system that solves it and leaves
-                it running inside your business. You own the result.
+                Strategy and engineering in one firm. We diagnose the problem,
+                build the AI that solves it, and hand it over. You own it
+                outright.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
                 <CTA href="/contact" event="cta_book_session">
@@ -112,15 +151,15 @@ export default function Home() {
         <Container className="py-24 lg:py-32">
           <Reveal>
             <SectionHeader
-              eyebrow="A third option"
+              eyebrow="How this usually goes"
               title={
                 <span id="third-option-title">
-                  Two familiar models. Each does half the job.
+                  Three familiar paths. Each stops short of a system you own.
                 </span>
               }
             />
           </Reveal>
-          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-2">
             <Reveal className="flex">
               <article className="flex flex-col rounded-[5px] border border-ink/15 bg-paper-2 p-8 lg:p-10">
                 <span className="font-mono text-sm text-blue">[01]</span>
@@ -146,20 +185,35 @@ export default function Home() {
               </article>
             </Reveal>
             <Reveal delay={160} className="flex">
+              <article className="flex flex-col rounded-[5px] border border-ink/15 bg-paper-2 p-8 lg:p-10">
+                <span className="font-mono text-sm text-blue">[03]</span>
+                <h3 className="display-3 mt-14 lg:mt-20">
+                  The best engineers embed elsewhere.
+                </h3>
+                <p className="body-md mt-4 text-ink/75">
+                  Elite teams will put engineers inside a business and build
+                  exactly what it needs. That model is real. It is also
+                  reserved for enterprises many times your size, priced for
+                  them, and the system it builds is never yours to keep.
+                </p>
+              </article>
+            </Reveal>
+            <Reveal delay={240} className="flex">
               <article className="relative flex flex-col overflow-hidden rounded-[5px] bg-ink p-8 text-paper lg:p-10">
                 <LogoMark
                   width={220}
                   className="pointer-events-none absolute -bottom-12 -right-10 text-paper/6"
                 />
-                <span className="font-mono text-sm text-lime">[03]</span>
+                <span className="font-mono text-sm text-lime">[04]</span>
                 <h3 className="display-3 relative mt-14 lg:mt-20">
                   We do both halves.
                 </h3>
                 <p className="body-md relative mt-4 text-paper/70">
-                  We diagnose your operation like a strategy firm, find the
-                  single problem worth the most to solve, then build the AI
-                  system that solves it. When we hand it over, the capability is
-                  yours. The code, the data, the asset.
+                  We bring that caliber of embedded engineering, sized for a
+                  business doing 5 to 30 million in revenue and set at a fixed
+                  price you agree to up front. We find the single problem worth
+                  the most to solve, build the AI system that solves it, and
+                  hand it over. The code, the data, the asset. Yours.
                 </p>
               </article>
             </Reveal>
@@ -200,6 +254,53 @@ export default function Home() {
                     &#8599;
                   </span>
                 </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Proof strip. DRAFT vignettes pending Tyler's approval (content lives
+          in the `engagements` array above). The optional `metric` renders only
+          when present, so quantified results can drop in without layout change. */}
+      <section aria-labelledby="proof-title" className="border-t border-ink/15">
+        <Container className="py-24 lg:py-32">
+          <Reveal>
+            <SectionHeader
+              eyebrow="In the field"
+              title={
+                <span id="proof-title">Systems we built and handed over.</span>
+              }
+            />
+          </Reveal>
+          <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {engagements.map((v, i) => (
+              <Reveal key={v.client} delay={i * 80} className="flex">
+                <article className="flex w-full flex-col rounded-[5px] border border-ink/15 bg-paper-2 p-8 lg:p-10">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="font-mono text-sm text-blue">
+                      [{String(i + 1).padStart(2, "0")}]
+                    </span>
+                    {v.metric && (
+                      <span className="text-right font-display text-2xl font-medium leading-none tracking-tight text-blue">
+                        {v.metric}
+                      </span>
+                    )}
+                  </div>
+                  <p className="label-mono-sm mt-10 text-ink/70">{v.client}</p>
+                  <p className="body-md mt-5 text-ink/75">
+                    <span className="text-ink">The problem. </span>
+                    {v.problem}
+                  </p>
+                  <p className="body-md mt-3 text-ink/75">
+                    <span className="text-ink">What we built. </span>
+                    {v.system}
+                  </p>
+                  <p className="body-md mt-3 text-ink/75">
+                    <span className="text-ink">The result. </span>
+                    {v.outcome}
+                  </p>
+                </article>
               </Reveal>
             ))}
           </div>
