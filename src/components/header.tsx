@@ -35,7 +35,7 @@ export function Header() {
           className="text-ink transition-colors hover:text-blue"
           aria-label="Dialed Intelligence home"
         >
-          <Wordmark markWidth={34} textClassName="text-[1.0625rem]" />
+          <Wordmark markWidth={32} />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">

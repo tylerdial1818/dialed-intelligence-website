@@ -1,6 +1,19 @@
-const MARK_PATH =
-  "M18 0 L80 0 A50 50 0 0 1 80 100 L18 100 A18 18 0 0 1 0 82 L0 18 A18 18 0 0 1 18 0 Z M56 0 L68 0 L68 44 L130 44 L130 56 L68 56 L68 100 L56 100 L56 56 L0 56 L0 44 L56 44 Z";
+import {
+  MARK_PATH,
+  MARK_VIEWBOX,
+  WORDMARK_PATHS,
+  WORDMARK_VIEWBOX,
+} from "@/lib/brand";
 
+const [, , MARK_W, MARK_H] = MARK_VIEWBOX.split(" ").map(Number);
+const [, , WM_W, WM_H] = WORDMARK_VIEWBOX.split(" ").map(Number);
+
+/**
+ * The official Dialed Intelligence "iD" monogram. Renders in currentColor so
+ * callers set ink, blue, or lime through text color. Decorative by default
+ * (aria-hidden); wrap it in a labelled link or add your own label when it
+ * carries meaning on its own.
+ */
 export function LogoMark({
   className,
   width = 36,
@@ -11,38 +24,65 @@ export function LogoMark({
   return (
     <svg
       width={width}
-      height={Math.round(width * (100 / 130))}
-      viewBox="0 0 130 100"
+      height={Math.round((width * MARK_H) / MARK_W)}
+      viewBox={MARK_VIEWBOX}
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      <path fillRule="evenodd" d={MARK_PATH} />
+      <path d={MARK_PATH} />
     </svg>
   );
 }
 
-export function Wordmark({
-  markWidth = 34,
-  textClassName = "text-lg",
-  className = "",
+/**
+ * The official primary wordmark (bold italic, with the registered mark) as
+ * vector art, so it shows the true Helvetica letterforms without waiting on a
+ * licensed webfont. Sized by height; inherits currentColor.
+ */
+export function WordmarkLettering({
+  className,
+  height = 18,
 }: {
-  markWidth?: number;
-  textClassName?: string;
   className?: string;
+  height?: number;
 }) {
   return (
-    <span className={`inline-flex items-center gap-3 ${className}`}>
-      <LogoMark width={markWidth} />
-      <span
-        className={`font-display font-bold italic tracking-tight whitespace-nowrap ${textClassName}`}
-      >
-        Dialed Intelligence
-        <sup className="text-[0.5em] not-italic align-super">&reg;</sup>
-      </span>
-    </span>
+    <svg
+      height={height}
+      width={Math.round((height * WM_W) / WM_H)}
+      viewBox={WORDMARK_VIEWBOX}
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {WORDMARK_PATHS.map((d, i) => (
+        <path key={i} d={d} />
+      ))}
+    </svg>
   );
 }
 
-export { MARK_PATH };
+/**
+ * The official horizontal lockup: the iD mark beside the primary wordmark,
+ * both inheriting currentColor. The art is aria-hidden because the linking
+ * element that wraps it ("Dialed Intelligence home") supplies the name.
+ */
+export function Wordmark({
+  markWidth = 34,
+  className = "",
+}: {
+  markWidth?: number;
+  className?: string;
+}) {
+  const markHeight = (markWidth * MARK_H) / MARK_W;
+  const wordmarkHeight = Math.round(markHeight * 0.74);
+  return (
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <LogoMark width={markWidth} />
+      <WordmarkLettering height={wordmarkHeight} />
+    </span>
+  );
+}

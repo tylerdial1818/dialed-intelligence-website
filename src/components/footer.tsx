@@ -15,7 +15,7 @@ export function Footer() {
               className="inline-block text-paper transition-colors hover:text-lime"
               aria-label="Dialed Intelligence home"
             >
-              <Wordmark markWidth={36} textClassName="text-lg" />
+              <Wordmark markWidth={34} />
             </Link>
             <p className="mt-6 max-w-xs text-[0.9375rem] leading-relaxed text-paper/65">
               {site.positioning}

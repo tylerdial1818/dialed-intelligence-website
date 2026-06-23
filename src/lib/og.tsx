@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { MARK_PATH, MARK_VIEWBOX } from "@/lib/brand";
 
 /**
  * Shared OG image builder. Every opengraph-image.tsx route calls
@@ -13,35 +14,33 @@ import path from "node:path";
 
 export const ogSize = { width: 1200, height: 630 };
 
-// The D-mark path, copied verbatim from src/components/logo.tsx so this
-// module stays self-contained for the image runtime.
-const MARK_PATH =
-  "M18 0 L80 0 A50 50 0 0 1 80 100 L18 100 A18 18 0 0 1 0 82 L0 18 A18 18 0 0 1 18 0 Z M56 0 L68 0 L68 44 L130 44 L130 56 L68 56 L68 100 L56 100 L56 56 L0 56 L0 44 L56 44 Z";
+// The official iD mark comes from the shared brand module so the social cards
+// never drift from the header, footer, and favicon.
 
 const INK = "#2D2A2B";
-const PAPER = "#E6E6E4";
+const PAPER = "#E9E9EA";
 const BLUE = "#346AEA";
 const LIME = "#CDDD3C";
 
-// Arimo stands in for the Helvetica Neue system stack here. The image
-// runtime has no system fonts and Helvetica Neue cannot be bundled, so the
-// closest open-licensed match (metric-compatible with Arial) renders the
-// sans. The mono matches the site's Roboto Mono.
+// The real R5 brand fonts, bundled for the image runtime (which has no system
+// fonts). Copied from fonts-src/DI_Fonts into og-fonts. The title and footer
+// label use Helvetica Neue LT regular width; the eyebrow and url use Helvetica
+// Monospaced Pro.
 async function loadFonts() {
   const dir = path.join(process.cwd(), "src", "lib", "og-fonts");
   const [sans, mono] = await Promise.all([
-    readFile(path.join(dir, "arimo-v36-latin-500.ttf")),
-    readFile(path.join(dir, "roboto-mono-v24-latin-regular.ttf")),
+    readFile(path.join(dir, "HelveticaNeueLTStd-Md.otf")),
+    readFile(path.join(dir, "HelveticaMonospacedPro-Rg.otf")),
   ]);
   return [
     {
-      name: "Arimo",
+      name: "Helvetica Neue LT Std",
       data: sans,
       weight: 500 as const,
       style: "normal" as const,
     },
     {
-      name: "Roboto Mono",
+      name: "Helvetica Monospaced Pro",
       data: mono,
       weight: 400 as const,
       style: "normal" as const,
@@ -81,16 +80,16 @@ export async function brandOgImage({
         >
           <svg
             width={72}
-            height={55}
-            viewBox="0 0 130 100"
+            height={58}
+            viewBox={MARK_VIEWBOX}
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path fillRule="evenodd" fill={BLUE} d={MARK_PATH} />
+            <path fill={BLUE} d={MARK_PATH} />
           </svg>
           <div
             style={{
               display: "flex",
-              fontFamily: "Roboto Mono",
+              fontFamily: "Helvetica Monospaced Pro",
               fontSize: 24,
               letterSpacing: 2,
               textTransform: "uppercase",
@@ -103,7 +102,7 @@ export async function brandOgImage({
         <div
           style={{
             display: "flex",
-            fontFamily: "Arimo",
+            fontFamily: "Helvetica Neue LT Std",
             fontWeight: 500,
             fontSize: titleSize,
             lineHeight: 1.02,
@@ -126,7 +125,7 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "Arimo",
+              fontFamily: "Helvetica Neue LT Std",
               fontWeight: 500,
               fontSize: 26,
               color: PAPER,
@@ -137,7 +136,7 @@ export async function brandOgImage({
           <div
             style={{
               display: "flex",
-              fontFamily: "Roboto Mono",
+              fontFamily: "Helvetica Monospaced Pro",
               fontSize: 22,
               color: "rgba(230,230,228,0.6)",
             }}

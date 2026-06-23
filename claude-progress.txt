@@ -65,3 +65,79 @@ NEXT      | Push branch and open PR when ready. Optional upgrade path is
           | licensing Helvetica Neue LT and Helvetica Monospaced Pro webfonts
           | from Monotype, then swapping them into the same CSS variables.
 BLOCKERS  | None
+
+--- 2026-06-22 ---
+SESSION   | 2026-06-22 | orchestrator (Claude) | branch design/r5-brand-assets
+COMPLETED | Adopted the official R5 brand package (brand/R5). Replaced the
+          | hand-drawn DI monogram and faux-italic text wordmark with the real
+          | "iD" mark and primary wordmark (Asset 4, bold italic) as vector art,
+          | generated into src/lib/brand.ts (single source for header, footer,
+          | favicon, OG). Locked colors to spec (paper e6e6e4 -> e9e9ea; ink,
+          | blue, lime already matched). Wired the full Helvetica type system in
+          | globals.css: --font-display = Helvetica Neue LT Extended (headlines),
+          | --font-sans = Helvetica Neue LT regular (body), --font-mono =
+          | Helvetica Monospaced Pro, each falling back to the prior system /
+          | Roboto Mono stacks. Updated icon.svg and og.tsx to the official mark.
+FONTS     | Per Tyler: "wire it up, license later." The @font-face block in
+          | globals.css is COMMENTED OUT (no font binaries shipped, zero 404s).
+          | Activate when the Monotype WEB license is in hand: drop WOFF2 into
+          | public/fonts and uncomment the block. Mapping in public/fonts/README.
+          | Headline tracking left at the existing values on purpose; retune it
+          | for the wider glyphs when the Extended webfont is activated.
+TESTS     | lint clean, typecheck clean, build green. Preview-verified: header +
+          | footer lockups (currentColor on light and ink), home hero, favicon,
+          | OG card (official mark in blue), mobile header (no overlap, 375px),
+          | font roles resolve to the brand stacks, zero font 404s.
+FOUND     | Pre-existing bug (not from this change): mobile nav menu panel
+          | collapses to ~3px because the header's backdrop-blur makes it the
+          | containing block for the menu's position:fixed. Flagged as a separate
+          | task. Fix: move the menu out of the blurred header / use a portal.
+NEXT      | Tyler review of branch. Commit + PR when approved. Then license the
+          | Helvetica webfonts to light up true Extended headlines + mono.
+BLOCKERS  | None
+
+--- 2026-06-22 (later) ---
+SESSION   | 2026-06-22 | orchestrator (Claude) | branch design/r5-brand-assets
+COMPLETED | FONTS ACTIVATED. Tyler licensed the fonts and imported the full
+          | Helvetica Neue LT Std family + Helvetica Monospaced Pro (OTF) into
+          | public/fonts/DI_Fonts. Converted the 13 used faces to WOFF2 in
+          | public/fonts (regular + italic/oblique across 400/500/700, plus mono)
+          | and moved the 52-file OTF source library to fonts-src/DI_Fonts (repo
+          | root, not web-served). Uncommented + rebuilt the @font-face block in
+          | globals.css as the active 13-face set. Upgraded the OG image
+          | (src/lib/og.tsx) to real Helvetica via three bundled OTFs in
+          | src/lib/og-fonts (MdEx title, Md footer, Mono eyebrow/url); Satori
+          | renders OTF fine. Removed Roboto Mono entirely (next/font import,
+          | --font-roboto-mono from --font-mono, and the og-fonts TTFs). The
+          | site is now fully Helvetica with system fallback.
+TESTS     | lint clean, typecheck clean, build green (all OG images prerender via
+          | Satori with the Helvetica OTFs). Preview-verified: hero renders
+          | Helvetica Neue LT Extended (incl. true Extended Oblique for the italic
+          | clause), mono = Helvetica Monospaced Pro, OG card uses Extended title,
+          | only the 5 used woff2 faces load on home, zero Roboto requests, no
+          | console errors.
+NOTES     | Headline tracking left at existing values. On the Extended face the
+          | tight tracking reads as intentional, not cramped, so no retune.
+NEXT      | Tyler review of branch. Commit + PR when approved.
+BLOCKERS  | None
+
+--- 2026-06-22 (font width revision) ---
+SESSION   | 2026-06-22 | orchestrator (Claude) | branch design/r5-brand-assets
+COMPLETED | Tyler preferred the regular Helvetica lettering over the Extended
+          | headlines. Kept the real licensed Helvetica active but switched the
+          | headline width from EXTENDED to REGULAR. --font-display now points at
+          | "Helvetica Neue LT Std" (regular), same as --font-sans. Reduced the
+          | served set to 7 WOFF2 (regular family Roman/It/Md/MdIt/Bd/BdIt + mono);
+          | dropped the 6 Extended faces. OG title is now regular Helvetica (Md).
+          | Helvetica Monospaced Pro stays the mono. No Arimo, no Roboto Mono, no
+          | Extended anywhere. (Detour: briefly reverted toward the Arimo/Roboto
+          | stand-ins before Tyler clarified he wanted real Helvetica, just the
+          | regular width, so that revert was undone.)
+TESTS     | lint clean, typecheck clean, build green (OG prerenders with regular
+          | Helvetica OTFs). Preview-verified: hero h1 = "Helvetica Neue LT Std"
+          | (regular), regular oblique for the italic clause, mono = Helvetica
+          | Monospaced Pro, only Roman/Md/MdIt/Mono load on home, zero Arimo /
+          | Roboto / Extended requests, OG card regular Helvetica, no errors.
+NEXT      | Tyler review. Commit + PR when approved. Extended cut still available
+          | in fonts-src if he ever wants to revisit it.
+BLOCKERS  | None

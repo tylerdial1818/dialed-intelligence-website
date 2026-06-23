@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-// The brand sans is Helvetica Neue per the brand book. It ships as a system
-// stack (no webfont license for Helvetica Neue LT), so only the mono loads
-// as a webfont. The stack lives in globals.css under @theme.
-const robotoMono = Roboto_Mono({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-roboto-mono",
-  display: "swap",
-});
-
+// The R5 type system is self-hosted Helvetica in globals.css: Helvetica Neue LT
+// (sans, regular width) and Helvetica Monospaced Pro (mono), each with a system
+// Helvetica fallback. Font roles live in globals.css under @theme.
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -43,7 +35,6 @@ export default function RootLayout({
       // The inline script below adds a "js" class before hydration so scroll
       // reveals only hide content when JS is actually running.
       suppressHydrationWarning
-      className={robotoMono.variable}
     >
       <body className="flex min-h-svh flex-col">
         <script

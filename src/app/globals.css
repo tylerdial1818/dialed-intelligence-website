@@ -1,16 +1,83 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   Brand webfonts. Helvetica Neue LT + Helvetica Monospaced Pro (R5 brand book).
+   Licensed and active, self-hosted as WOFF2 in public/fonts (converted from the
+   OTF sources in fonts-src/DI_Fonts). Headlines and body use the REGULAR width
+   (--font-display and --font-sans); labels, dates, and data use the mono
+   (--font-mono). Mapped to roles in @theme below. The wider Extended cut is
+   available in fonts-src but intentionally not used.
+   --------------------------------------------------------------------------- */
+
+/* Headlines, hero, and body. Helvetica Neue LT Std, regular width */
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-Roman.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-It.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-Md.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-MdIt.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-Bd.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Neue LT Std";
+  src: url("/fonts/HelveticaNeueLTStd-BdIt.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Labels, dates, data. Helvetica Monospaced Pro */
+@font-face {
+  font-family: "Helvetica Monospaced Pro";
+  src: url("/fonts/HelveticaMonospacedPro-Rg.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-ink: #2d2a2b;
   --color-ink-2: #373435;
-  --color-paper: #e6e6e4;
-  --color-paper-2: #f4f4f2;
+  --color-paper: #e9e9ea;
+  --color-paper-2: #f3f3f3;
   --color-blue: #346aea;
   --color-blue-2: #2a57c4;
   --color-lime: #cddd3c;
-  --font-display: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
-  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
+
+  /* The R5 type roles, all real Helvetica (loaded by the @font-face block
+     above), each with a system Helvetica fallback. Headlines and body both use
+     Helvetica Neue LT in the regular width; the mono is Helvetica Monospaced
+     Pro. (The wider Extended cut is available but not used.) */
+  --font-display: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-sans: "Helvetica Neue LT Std", "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: "Helvetica Monospaced Pro", ui-monospace, monospace;
 }
 
 :root {
