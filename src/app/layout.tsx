@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default:
-      "Dialed Intelligence | We find your most valuable question and build the AI that answers it",
+      "Dialed Intelligence | We find what is costing you most, then build the system that fixes it",
     template: "%s | Dialed Intelligence",
   },
   description:
-    "Dialed Intelligence diagnoses the highest-value problem in your operation, then builds the AI system that solves it and leaves it running. You own the result.",
+    "Strategy and engineering in one firm. We diagnose the problem, build the AI that solves it, and hand it over. You own it outright.",
   openGraph: {
     siteName: "Dialed Intelligence",
     type: "website",
