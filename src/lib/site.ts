@@ -1,7 +1,7 @@
 export const site = {
   name: "Dialed Intelligence",
   url: "https://dialedintelligence.com",
-  email: "hello@dialedintelligence.com",
+  email: "tyler@dialedintelligence.com",
   // Update with the firm's real LinkedIn URL before launch.
   linkedin: "https://www.linkedin.com/company/dialed-intelligence",
   // Set to a Calendly (or equivalent) scheduling URL to enable the
